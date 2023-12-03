@@ -8,7 +8,7 @@ final class Day01Tests: XCTestCase { }
 
 // MARK: - Part 1 Test(s)
 extension Day01Tests {
-    func testPart1() throws {
+    func test_part1() throws {
         let challenge = Day01(data: part1_TestData)
         XCTAssertEqual(String(describing: challenge.part1()), "142")
     }
