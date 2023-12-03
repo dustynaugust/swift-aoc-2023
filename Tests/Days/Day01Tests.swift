@@ -5,14 +5,14 @@ import XCTest
 // Make a copy of this file for every day to ensure the provided smoke tests
 // pass.
 final class Day01Tests: XCTestCase {
-  func testPart1() throws {
-    let challenge = Day01(data: testData)
-    XCTAssertEqual(String(describing: challenge.part1()), "142")
-  }
-
-  func testPart2() throws {
-    XCTFail("TODO")
-  }
+    func testPart1() throws {
+        let challenge = Day01(data: testData)
+        XCTAssertEqual(String(describing: challenge.part1()), "142")
+    }
+    
+    func testPart2() throws {
+        XCTFail("TODO")
+    }
 }
 
 private extension Day01Tests {
