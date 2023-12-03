@@ -6,9 +6,9 @@ struct Day02: AdventDay {
         let red: Int
         let green: Int
         let blue: Int
+        let power: Int
         
         init?(string: String) {
-            
             var red = Int.min
             var green = Int.min
             var blue = Int.min
@@ -20,8 +20,6 @@ struct Day02: AdventDay {
             
             for colorSegment in colorSegments {
                 let colors = colorSegment.split(separator: ", ")
-                print("colors: \(colors)")
-                
                 for color in colors {
                     let c = color.filter { !$0.isWhitespace}
                     if c.contains("red") {
@@ -44,6 +42,7 @@ struct Day02: AdventDay {
             self.red = red
             self.green = green
             self.blue = blue
+            self.power = self.red  * self.green  * self.blue
         }
     }
     
@@ -80,6 +79,12 @@ struct Day02: AdventDay {
     // Replace this with your solution for the second part of the day's challenge.
     func part2() -> Any {
         // Sum the maximum entries in each set of data
-        "TODO"
+        var sum = 0
+        
+        for entity in entities {
+            sum = sum + entity.power
+        }
+        
+        return sum
     }
 }
