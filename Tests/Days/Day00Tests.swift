@@ -24,12 +24,12 @@ final class Day00Tests: XCTestCase {
     
     """
     
-    func testPart1() throws {
+    func test_part1() throws {
         let challenge = Day00(data: testData)
         XCTAssertEqual(String(describing: challenge.part1()), "6000")
     }
     
-    func testPart2() throws {
+    func test_part2() throws {
         let challenge = Day00(data: testData)
         XCTAssertEqual(String(describing: challenge.part2()), "32000")
     }
