@@ -13,6 +13,31 @@ extension Day02TestsTests {
         XCTAssertEqual(String(describing: challenge.part1()), "8")
     }
     
+    func test_part1_TestData_Line1() throws {
+        let challenge = Day02(data: part1_TestData_Line1)
+        XCTAssertEqual(String(describing: challenge.part1()), "1")
+    }
+    
+    func test_part1_TestData_Line2() throws {
+        let challenge = Day02(data: part1_TestData_Line2)
+        XCTAssertEqual(String(describing: challenge.part1()), "2")
+    }
+    
+    func test_part1_TestData_Line3() throws {
+        let challenge = Day02(data: part1_TestData_Line3)
+        XCTAssertEqual(String(describing: challenge.part1()), "0")
+    }
+    
+    func test_part1_TestData_Line4() throws {
+        let challenge = Day02(data: part1_TestData_Line4)
+        XCTAssertEqual(String(describing: challenge.part1()), "0")
+    }
+    
+    func test_part1_TestData_Line5() throws {
+        let challenge = Day02(data: part1_TestData_Line5)
+        XCTAssertEqual(String(describing: challenge.part1()), "5")
+    }
+    
     // MARK: Part 1 Test Data
     private var part1_TestData: String {
         return """
