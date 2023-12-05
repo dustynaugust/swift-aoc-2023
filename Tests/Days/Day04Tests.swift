@@ -28,12 +28,12 @@ final class Day04Tests: XCTestCase {
 extension Day04Tests {
     func test_part1() throws {
         let challenge = Day04(data: testData)
-        XCTAssertEqual(String(describing: challenge.part1()), "8")
+        XCTAssertEqual(String(describing: challenge.part1()), "13")
     }
     
     func test_part1_TestData_Line1() throws {
         let challenge = Day04(data: testData_Line1)
-        XCTAssertEqual(String(describing: challenge.part1()), "2")
+        XCTAssertEqual(String(describing: challenge.part1()), "8")
     }
     
     func test_part1_TestData_Line2() throws {
@@ -43,12 +43,12 @@ extension Day04Tests {
     
     func test_part1_TestData_Line3() throws {
         let challenge = Day04(data: testData_Line3)
-        XCTAssertEqual(String(describing: challenge.part1()), "1")
+        XCTAssertEqual(String(describing: challenge.part1()), "2")
     }
     
     func test_part1_TestData_Line4() throws {
         let challenge = Day04(data: testData_Line4)
-        XCTAssertEqual(String(describing: challenge.part1()), "0")
+        XCTAssertEqual(String(describing: challenge.part1()), "1")
     }
     
     func test_part1_TestData_Line5() throws {
