@@ -94,7 +94,71 @@ struct Day03: AdventDay {
             .reduce(0, +)
     }
     
-    
+    func part2() -> Any {
+        guard !entities.isEmpty else { fatalError("Unexpected Input Data") }
+        
+        let rowBoundary = entities.count - 1
+        let colBoundary = entities[0].count - 1
+        var row = 0
+        var col = 0
+        
+        var gearDict = [Coordinate: [String]]()
+        
+        while row <= rowBoundary {
+            while col <= colBoundary {
+                var potential = ""
+                // Get potential numbers
+                var tempCol = col
+                var current = entities[row][tempCol]
+                
+                while current.isNumber,
+                      tempCol <= colBoundary {
+                    potential.append(current)
+                    tempCol = tempCol + 1
+                    
+                    if tempCol <= colBoundary {
+                        current = entities[row][tempCol]
+                    }
+                }
+                
+                if potential.isEmpty {
+                    col = col + 1
+                    continue
+                }
+                
+                // Check perimeter of the number
+                var potentialCount = potential.count
+                tempCol = col
+                while potentialCount > 0,
+                      tempCol <= colBoundary {
+                    if let gearCoordinate = checkPerimeterForGrear(row: row, col: tempCol, in: entities) {
+                        var array = gearDict[gearCoordinate, default: []]
+                        array.append(potential)
+                        gearDict[gearCoordinate] = array
+                        break
+                        
+                    } else {
+                        tempCol = tempCol + 1
+                        potentialCount = potentialCount - 1
+                    }
+                }
+                
+                col = col + potential.count
+            }
+            
+            col = 0
+            row = row + 1
+        }
+        
+        return gearDict.values
+            .filter { $0.count == 2 }
+            .map({ $0.compactMap(Int.init) })
+            .map { $0.reduce(1, *) }
+            .reduce(0, +)
+    }
+}
+
+extension Day03 {
     private func check(
         _ matrix: [[String.Element]],
         contains symbols: Set<String.Element>,
@@ -116,10 +180,61 @@ struct Day03: AdventDay {
         return symbols.contains(value)
     }
     
-    // Replace this with your solution for the second part of the day's challenge.
-    func part2() -> Any {
-        // Sum the maximum entries in each set of data
-        "TODO"
+    private func checkPerimeterForGrear(
+        row: Int,
+        col: Int,
+        in matrix: [[String.Element]]
+    ) -> Coordinate? {
+        let gear = Set(Array("*"))
+        for direction in Direction.allCases {
+            let coordinate = direction.apply(row: row, col: col)
+            if check(entities, contains: gear, coordinates: (coordinate.row, coordinate.col)) {
+                return coordinate
+            }
+        }
+        
+        return nil
     }
+    
+    struct Coordinate: Hashable {
+        let row: Int
+        let col: Int
+    }
+    
+    enum Direction: CaseIterable {
+        case right
+        case rightUp
+        case up
+        case upLeft
+        case left
+        case leftDown
+        case down
+        case downRight
+        
+        func apply(row: Int, col: Int) -> Coordinate {
+            let result: Coordinate
+            
+            switch self {
+            case .right:
+                result = Coordinate(row: row    , col: col + 1)
+            case .rightUp:
+                result = Coordinate(row: row - 1, col: col + 1)
+            case .up:
+                result = Coordinate(row: row - 1, col: col)
+            case .upLeft:
+                result = Coordinate(row: row - 1, col: col - 1)
+            case .left:
+                result = Coordinate(row: row    , col: col - 1)
+            case .leftDown:
+                result = Coordinate(row: row + 1, col: col - 1)
+            case .down:
+                result = Coordinate(row: row + 1, col: col)
+            case .downRight:
+                result = Coordinate(row: row + 1, col: col + 1)
+            }
+            
+            return result
+        }
+    }
+    
 }
-
