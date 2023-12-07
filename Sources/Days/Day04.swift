@@ -49,9 +49,6 @@ struct Day04: AdventDay {
     
     // Replace this with your solution for the second part of the day's challenge.
     func part2() -> Any {
-        // Calculate the sum of the first set of input data
-        var sum = 0
-        
         var cards = Array(repeating: 1, count: entities.count)
         
         for (index, string) in entities.enumerated() {
