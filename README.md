@@ -27,7 +27,7 @@ Day09: ☆☆<br>
 Day08: ☆☆<br>
 Day07: ☆☆<br>
 Day06: ★★<br>
-Day05: ☆☆<br>
+Day05: ★★<br>
 Day04: ★★<br>
 Day03: ★★<br>
 Day02: ★★<br>
