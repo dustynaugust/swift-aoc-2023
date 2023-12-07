@@ -263,9 +263,14 @@ extension Day05Tests {
 
 // MARK: - Part 2 Test(s)
 extension Day05Tests {
-    func test_part2() throws {
+    func test_part2_sampleData() throws {
         let challenge = Day05(data: .sampleData)
-        XCTAssertEqual(String(describing: challenge.part2()), "TODO")
+        XCTAssertEqual(String(describing: challenge.part2()), "46")
+    }
+    
+    func test_part2_inputData() throws {
+        let challenge = Day05(data: .inputData)
+        XCTAssertEqual(String(describing: challenge.part2()), "fail")
     }
 }
 

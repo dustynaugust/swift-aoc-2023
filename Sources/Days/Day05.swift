@@ -13,7 +13,7 @@ struct Day05: AdventDay {
     }
     
     func part1() -> Any {
-        guard let map = MapFactory.makeMaps(from: entities) else { fatalError() }
+        guard let map = MapFactory.makeMaps(from: entities, seedInputType: .individual) else { fatalError() }
         
         var minValue = Double.greatestFiniteMagnitude
         
@@ -37,12 +37,36 @@ struct Day05: AdventDay {
     
     // Replace this with your solution for the second part of the day's challenge.
     func part2() -> Any {
-        "TODO"
+        guard let map = MapFactory.makeMaps(from: entities, seedInputType: .ranges) else { fatalError() }
+        
+        var minValue = Double.greatestFiniteMagnitude
+        
+        for seed in map.seeds {
+            var value = seed
+            
+            for mapEntry in map.entries {
+                for mapping in mapEntry.maps {
+                    if mapping.range.contains(value) {
+                        value = mapping.transform(value)
+                        break
+                    }
+                }
+            }
+            
+            minValue = min(minValue, value)
+        }
+        
+        return Int(minValue)
     }
 }
 
 private extension Day05 {
     enum MapFactory {
+        enum SeedInputType {
+            case individual
+            case ranges
+        }
+        
         typealias Entries = [MapEntry]
         typealias MapEntry = (name: String, maps: [Mapping])
         typealias Mapping = (range: Range, transform: Transformation)
@@ -50,10 +74,21 @@ private extension Day05 {
         typealias Range = ClosedRange<Double>
         
         static func makeMaps(
-            from alamanac: [[String]]
+            from alamanac: [[String]],
+            seedInputType: SeedInputType
         ) -> (seeds: [Double],
               entries: Entries)? {
-            guard let seeds = getSeeds(from: alamanac) else { return nil }
+            let seeds: [Double]
+            
+            switch seedInputType {
+            case .individual:
+                guard let individualSeeds = getIndividualSeeds(from: alamanac) else { return nil }
+                seeds = individualSeeds
+                
+            case .ranges:
+                guard let individualSeeds = getSeedsFromRanges(from: alamanac) else { return nil }
+                seeds = individualSeeds
+            }
             
             var entries = Entries()
             for i in 1...7 {
@@ -90,7 +125,7 @@ private extension Day05 {
             return (name, mappings)
         }
         
-        private static func getSeeds(
+        private static func getIndividualSeeds(
             from arr: [[String]]
         ) -> [Double]? {
             guard arr.indices.contains(0),
@@ -101,6 +136,38 @@ private extension Day05 {
             return seedNumbersString
                 .components(separatedBy: " ")
                 .compactMap(Double.init)
+        }
+        
+        private static func getSeedsFromRanges(
+            from arr: [[String]]
+        ) -> [Double]? {
+            guard arr.indices.contains(0),
+                  let seedsLine = arr.first,
+                  let seedNumbersString = seedsLine.first.map({ $0.components(separatedBy: ": ") })?.last
+            else { return nil }
+            
+            
+            let s = seedNumbersString
+                .components(separatedBy: " ")
+                .compactMap(Double.init)
+            
+            var ranges = [Range]()
+            for i in stride(from: 1, to: s.count, by: 2) {
+                let start = s[i-1]
+                let length  = s[i]
+                
+                let range = start...(start + length - 1)
+                ranges.append(range)
+            }
+            
+            
+            var seeds = [Double]()
+            for range in ranges {
+                for i in stride(from: range.lowerBound, to: range.upperBound, by: 1) {
+                    seeds.append(i)
+                }
+            }
+            return seeds
         }
         
         private static func getMapInfo(
