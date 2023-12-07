@@ -24,6 +24,7 @@ struct Day05: AdventDay {
                 for mapping in mapEntry.maps {
                     if mapping.range.contains(value) {
                         value = mapping.transform(value)
+                        break
                     }
                 }
             }

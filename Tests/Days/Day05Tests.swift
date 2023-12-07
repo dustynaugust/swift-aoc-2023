@@ -122,7 +122,7 @@ final class Day05Tests: XCTestCase {
 extension Day05Tests {
     func test_part1_inputData_1() throws {
         let challenge = Day05(data: .inputData)
-        XCTAssertNotEqual(String(describing: challenge.part1()), "596584065")
+        XCTAssertEqual(String(describing: challenge.part1()), "825516882")
     }
     
     func test_part1_inputData_2() throws {
