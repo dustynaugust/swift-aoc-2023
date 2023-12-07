@@ -33,11 +33,6 @@ Day03: ★★<br>
 Day02: ★★<br>
 Day01: ★★<br>
 
-## // TODO:
-
-Optimizations. A few days run fairly slowly. I'm sure I could fix that with enough time.
-    - [ ] Day03
-
 ## Usage
 
 Swift comes with Xcode, or you can [install it](https://www.swift.org/install/)
