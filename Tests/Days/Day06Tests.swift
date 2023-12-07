@@ -23,16 +23,26 @@ final class Day06Tests: XCTestCase {
 
 // MARK: - Part 1 Test(s)
 extension Day06Tests {
-    func test_part1() throws {
+    func test_part1_sampleData() throws {
         let challenge = Day06(data: sampleData)
         XCTAssertEqual(String(describing: challenge.part1()), "288")
+    }
+    
+    func test_part1_inputData() throws {
+        let challenge = Day06(data: inputData)
+        XCTAssertEqual(String(describing: challenge.part1()), "512295")
     }
 }
 
 // MARK: - Part 2 Test(s)
 extension Day06Tests {
-    func test_part2() throws {
+    func test_part2_sampleData() throws {
         let challenge = Day06(data: sampleData)
-        XCTAssertEqual(String(describing: challenge.part2()), "TODO")
+        XCTAssertEqual(String(describing: challenge.part2()), "71503")
+    }
+    
+    func test_part2_inputData() throws {
+        let challenge = Day06(data: inputData)
+        XCTAssertEqual(String(describing: challenge.part2()), "36530883")
     }
 }
