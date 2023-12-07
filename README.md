@@ -36,7 +36,6 @@ Day01: ★★<br>
 
 Optimizations. A few days run fairly slowly. I'm sure I could fix that with enough time.
     - [ ] Day03
-    - [ ] Day06
 
 ## Usage
 
