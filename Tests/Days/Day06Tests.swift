@@ -4,7 +4,7 @@ import XCTest
 
 // Make a copy of this file for every day to ensure the provided smoke tests
 // pass.
-final class TemplateTests: XCTestCase {
+final class Day06Tests: XCTestCase {
     private var testData: String {
         return """
         """
@@ -12,17 +12,17 @@ final class TemplateTests: XCTestCase {
 }
 
 // MARK: - Part 1 Test(s)
-extension TemplateTests {
+extension Day06Tests {
     func test_part1() throws {
-        let challenge = Template(data: testData)
+        let challenge = Day06(data: testData)
         XCTAssertEqual(String(describing: challenge.part1()), "TODO")
-    }    
+    }
 }
 
 // MARK: - Part 2 Test(s)
-extension TemplateTests {
+extension Day06Tests {
     func test_part2() throws {
-        let challenge = Template(data: testData)
+        let challenge = Day06(data: testData)
         XCTAssertEqual(String(describing: challenge.part2()), "TODO")
     }
 }
