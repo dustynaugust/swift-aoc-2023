@@ -42,21 +42,22 @@ struct Day06: AdventDay {
     
     // Replace this with your solution for the second part of the day's challenge.
     func part2() -> Any {
-        guard 
+        guard
             let raceTime = Int(entities[0].components(separatedBy: ":")[1].replacingOccurrences(of: " ", with: "")),
             let maxDistance = Int(entities[1].components(separatedBy: ":")[1].replacingOccurrences(of: " ", with: ""))
         else { fatalError() }
         
-        var counts = [Int]()
-        
         var count = 0
-        for t in 0...raceTime {
+        for t in stride(from: (raceTime / 2), through: 0, by: -1) {
             let distance = t * (raceTime - t)
             if  distance > maxDistance {
                 count = count + 1
+                
+            } else {
+                break
             }
         }
         
-        return count
+        return count * 2 - 1
     }
 }
