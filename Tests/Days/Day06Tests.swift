@@ -5,8 +5,18 @@ import XCTest
 // Make a copy of this file for every day to ensure the provided smoke tests
 // pass.
 final class Day06Tests: XCTestCase {
-    private var testData: String {
+
+    private var sampleData: String {
         return """
+        Time:      7  15   30
+        Distance:  9  40  200
+        """
+    }
+    
+    private var inputData: String {
+        return """
+        Time:        46     80     78     66
+        Distance:   214   1177   1402   1024
         """
     }
 }
@@ -14,15 +24,15 @@ final class Day06Tests: XCTestCase {
 // MARK: - Part 1 Test(s)
 extension Day06Tests {
     func test_part1() throws {
-        let challenge = Day06(data: testData)
-        XCTAssertEqual(String(describing: challenge.part1()), "TODO")
+        let challenge = Day06(data: sampleData)
+        XCTAssertEqual(String(describing: challenge.part1()), "288")
     }
 }
 
 // MARK: - Part 2 Test(s)
 extension Day06Tests {
     func test_part2() throws {
-        let challenge = Day06(data: testData)
+        let challenge = Day06(data: sampleData)
         XCTAssertEqual(String(describing: challenge.part2()), "TODO")
     }
 }
