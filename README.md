@@ -1,6 +1,7 @@
 # Advent of Code Swift Starter Project
 
 [![Language](https://img.shields.io/badge/language-Swift-red.svg)](https://swift.org)
+
 Daily programming puzzles at [Advent of Code](<https://adventofcode.com/>), by
 [Eric Wastl](<http://was.tl/>). This is a small example starter project for building Advent of Code solutions.
 
@@ -31,12 +32,6 @@ Day04: ★★<br>
 Day03: ★★<br>
 Day02: ★★<br>
 Day01: ★★<br>
-
-## // TODO:
-
-Optimizations. A few days run fairly slowly. I'm sure I could fix that with enough time.
-    - [ ] Day03
-    - [ ] Day06
 
 ## Usage
 
