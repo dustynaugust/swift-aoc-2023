@@ -14,6 +14,7 @@ final class TemplateTests: XCTestCase {
 // MARK: - Part 1 Test(s)
 extension TemplateTests {
     func test_part1() throws {
+        XCTExpectFailure("Not yet implemented part 1")
         let challenge = Template(data: sampleData)
         XCTAssertEqual(String(describing: challenge.part1()), "TODO")
     }    
@@ -22,6 +23,7 @@ extension TemplateTests {
 // MARK: - Part 2 Test(s)
 extension TemplateTests {
     func test_part2() throws {
+        XCTExpectFailure("Not yet implemented part 2")
         let challenge = Template(data: sampleData)
         XCTAssertEqual(String(describing: challenge.part2()), "TODO")
     }
