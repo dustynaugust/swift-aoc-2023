@@ -28,18 +28,31 @@ final class Day08Tests: XCTestCase {
         ZZZ = (ZZZ, ZZZ
         """
     }
+    
+    private var sampleData3: String {
+        return """
+        LR
+
+        11A = (11B, XXX)
+        11B = (XXX, 11Z)
+        11Z = (11B, XXX)
+        22A = (22B, XXX)
+        22B = (22C, 22C)
+        22C = (22Z, 22Z)
+        22Z = (22B, 22B)
+        XXX = (XXX, XXX)
+        """
+    }
 }
 
 // MARK: - Part 1 Test(s)
 extension Day08Tests {
-    func test_part1_WithSampleData1() throws {
-        XCTExpectFailure("Not yet implemented part 1")
+    func test_part1_WithSampleData1() async throws {
         let challenge = Day08(data: sampleData1)
         XCTAssertEqual(String(describing: challenge.part1()), "2")
     }
     
     func test_part1_WithSampleData2() throws {
-        XCTExpectFailure("Not yet implemented part 1")
         let challenge = Day08(data: sampleData2)
         XCTAssertEqual(String(describing: challenge.part1()), "6")
     }
@@ -47,15 +60,8 @@ extension Day08Tests {
 
 // MARK: - Part 2 Test(s)
 extension Day08Tests {
-    func test_part2_WithSampleData1() throws {
-        XCTExpectFailure("Not yet implemented part 1")
-        let challenge = Day08(data: sampleData1)
-        XCTAssertEqual(String(describing: challenge.part2), "TODO")
-    }
-    
-    func test_part2_WithSampleData2() throws {
-        XCTExpectFailure("Not yet implemented part 1")
-        let challenge = Day08(data: sampleData2)
-        XCTAssertEqual(String(describing: challenge.part2()), "TODO")
+    func test_part2() throws {
+        let challenge = Day08(data: sampleData3)
+        XCTAssertEqual(String(describing: challenge.part2()), "6")
     }
 }
