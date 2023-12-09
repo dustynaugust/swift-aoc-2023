@@ -17,7 +17,7 @@ extension TemplateTests {
         XCTExpectFailure("Not yet implemented part 1")
         let challenge = Template(data: sampleData)
         XCTAssertEqual(String(describing: challenge.part1()), "TODO")
-    }    
+    }
 }
 
 // MARK: - Part 2 Test(s)
